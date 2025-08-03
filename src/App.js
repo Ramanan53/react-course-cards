@@ -3,7 +3,6 @@ import "./App.css";
 import Card from "./Card";
 
 export default function App() {
-  // Initialize from localStorage, or fall back to defaults
   const [courses, setCourses] = useState(() => {
     const saved = localStorage.getItem("courses");
     if (saved) return JSON.parse(saved);
@@ -12,39 +11,37 @@ export default function App() {
         id: 1,
         category: "Frontend",
         title: "React Development",
-        description:
-          "Professional development course designed to enhance your technical skills and career growth.",
+        description: "Professional development course...",
+        liked: false,
       },
       {
         id: 2,
         category: "Programming",
         title: "JavaScript Fundamentals",
-        description:
-          "Professional development course designed to enhance your technical skills and career growth.",
+        description: "Professional development course...",
+        liked: false,
       },
       {
         id: 3,
         category: "Design",
         title: "Web Design",
-        description:
-          "Professional development course designed to enhance your technical skills and career growth.",
+        description: "Professional development course...",
+        liked: false,
       },
       {
         id: 4,
         category: "Engineering",
         title: "Frontend Engineering",
-        description:
-          "Professional development course designed to enhance your technical skills and career growth.",
+        description: "Professional development course...",
+        liked: false,
       },
     ];
   });
 
-  // Persist to localStorage on every change
   useEffect(() => {
     localStorage.setItem("courses", JSON.stringify(courses));
   }, [courses]);
 
-  // Form state
   const [form, setForm] = useState({
     category: "",
     title: "",
@@ -59,7 +56,14 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.category || !form.title) return;
-    setCourses((arr) => [...arr, { id: Date.now(), ...form }]);
+    setCourses((arr) => [
+      ...arr,
+      {
+        id: Date.now(),
+        ...form,
+        liked: false,
+      },
+    ]);
     setForm({ category: "", title: "", description: "" });
   };
 
@@ -70,6 +74,12 @@ export default function App() {
   const handleUpdate = (id, updated) => {
     setCourses((arr) =>
       arr.map((c) => (c.id === id ? { ...c, ...updated } : c))
+    );
+  };
+
+  const toggleLike = (id) => {
+    setCourses((arr) =>
+      arr.map((c) => (c.id === id ? { ...c, liked: !c.liked } : c))
     );
   };
 
@@ -115,8 +125,10 @@ export default function App() {
             category={c.category}
             title={c.title}
             description={c.description}
+            liked={c.liked}
             onDelete={handleDelete}
             onUpdate={handleUpdate}
+            onToggleLike={toggleLike}
           />
         ))}
       </div>

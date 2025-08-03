@@ -6,10 +6,11 @@ export default function Card({
   category,
   title,
   description,
+  liked,
   onDelete,
   onUpdate,
+  onToggleLike,
 }) {
-  const [fav, setFav] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({ category, title, description });
 
@@ -64,13 +65,13 @@ export default function Card({
           <>
             <button
               className="card__favorite"
-              onClick={() => setFav(!fav)}
-              aria-label={fav ? "Unfavorite" : "Favorite"}
+              onClick={() => onToggleLike(id)}
+              aria-label={liked ? "Unfavorite" : "Favorite"}
             >
-              {fav ? "❤️" : "🤍"}
+              {liked ? "❤️" : "🤍"}
             </button>
             <span className="card__fav-label">
-              {fav ? "Favorited" : "Add to favorites"}
+              {liked ? "Favorited" : "Add to favorites"}
             </span>
           </>
         )}
