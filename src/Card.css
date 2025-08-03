@@ -1,0 +1,131 @@
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card__pill {
+  font-size: 0.75rem;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 999px;
+  align-self: start;
+  text-transform: capitalize;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #0f172a;
+}
+
+.card__desc {
+  margin: 0;
+  flex: 1;
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.card__input,
+.card__textarea {
+  width: 100%;
+  border: 1px solid #ccd0d7;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.card__input:focus,
+.card__textarea:focus {
+  outline: none;
+  border-color: #5c7cfa;
+}
+
+.card__textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+}
+
+.card__favorite {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.card__favorite:active {
+  transform: scale(0.9);
+}
+
+.card__fav-label {
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.card__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card__btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.card__btn--edit {
+  background: #f1f5f9;
+  color: #334155;
+}
+.card__btn--edit:hover {
+  background: #e2e8f0;
+}
+
+.card__btn--delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.card__btn--delete:hover {
+  background: #fecaca;
+}
+
+.card__btn--save {
+  background: #10b981;
+  color: #ffffff;
+}
+.card__btn--save:hover {
+  background: #059669;
+}
+
+.card__btn--cancel {
+  background: #f1f5f9;
+  color: #334155;
+}
+.card__btn--cancel:hover {
+  background: #e2e8f0;
+}

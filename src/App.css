@@ -1,0 +1,63 @@
+.app {
+  background: #f4f6fa;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.add-course-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-course-form input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccd0d7;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.add-course-form input:focus {
+  outline: none;
+  border-color: #5c7cfa;
+}
+
+.add-course-form button {
+  background: #5c7cfa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0 1.25rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.add-course-form button:hover {
+  background: #4263eb;
+}
+
+.add-course-form button:active {
+  transform: scale(0.97);
+}
+
+.app__header h1 {
+  font-size: 2.25rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.app__header p {
+  color: #475569;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.app__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
